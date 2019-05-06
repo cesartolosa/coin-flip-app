@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
+import { randomNumber } from './functions';
 
 @Component({
-  selector: 'ctf-root',
+  selector: 'ctf-coin-flip-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'coin-flip-app';
+
+  result: string | number = '';
+  
+  generate(n: string) {
+    try {
+      this.result = randomNumber(parseFloat(n));
+    } catch (error) {
+      this.result = error;
+    }
+  }
+
 }
